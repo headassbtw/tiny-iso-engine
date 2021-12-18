@@ -588,6 +588,21 @@ void Render::draw_gl(){
         verts3.push_back(tr3->y*mult);
         verts3.push_back(bl3->x*mult);
         verts3.push_back(bl3->y*mult);
+
+        delete tl;
+        delete tr;
+        delete bl;
+        delete br;
+
+        delete tl2;
+        delete tr2;
+        delete bl2;
+        delete br2;
+
+        delete tl3;
+        delete tr3;
+        delete bl3;
+        delete br3;
     }
 
 
