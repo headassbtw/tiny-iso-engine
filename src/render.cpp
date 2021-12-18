@@ -104,7 +104,7 @@ GLuint common_get_shader_program(
     program = glCreateProgram();
     //glAttachShader(program, vertex_shader);
     //glAttachShader(program, fragment_shader);
-    glLinkProgram(program);
+    /*glLinkProgram(program);
     
     glGetProgramiv(program, GL_LINK_STATUS, &success);
     glGetProgramiv(program, GL_INFO_LOG_LENGTH, &log_length);
@@ -114,7 +114,7 @@ GLuint common_get_shader_program(
     if (!success) {
         printf("shader link error");
         exit(EXIT_FAILURE);
-    }
+    }*/
 
     /* Cleanup. */
     glDeleteShader(vertex_shader);
@@ -272,11 +272,12 @@ void Render::init(){
 
 
 
-    bool rendermode = true;
+    bool rendermode = false;
     int lo = 0;
-    //while(!done){
-    for(int iii = 0; iii < 2; iii++){
-    for(int lo = 0; lo < 360; lo++){
+    int iii = 0;
+    while(!done){
+    //for(int iii = 0; iii < 2; iii++){
+    //for(int lo = 0; lo < 360; lo++){
         auto start = std::chrono::high_resolution_clock::now();
         Render::update_sdl();
         if(render_software)
@@ -317,8 +318,8 @@ void Render::init(){
         }
 
     }
-    wireframe = true;
-    }
+    //wireframe = true;
+    //}
     glDeleteBuffers(1, &vbo);
     glDeleteProgram(program);
     SDL_GL_DeleteContext(gl_context);
